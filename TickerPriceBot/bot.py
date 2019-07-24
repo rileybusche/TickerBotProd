@@ -23,12 +23,12 @@ async def on_ready():
 # Outputs price of ticker
 @bot.command()
 async def Price_Stock(ctx, ticker: str):
-    await ctx.send(ticker_alert.callStockAPI(ticker, "single"))
+    await ctx.send("```fix\n" + ticker_alert.callStockAPI(ticker, "single") + "```")
 
 # Outputs price of ticker
 @bot.command()
 async def Price_Crypto(ctx, crypto: str):
-    await ctx.send(ticker_alert.callCryptoAPI(crypto, "single"))
+    await ctx.send("```fix\n" + ticker_alert.callCryptoAPI(crypto, "single") + "```")
 
 # Lists price for all tracked tickers
 @bot.command()

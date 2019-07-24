@@ -44,9 +44,9 @@ def callStockAPI(ticker, mode):
                 print(response)
                 print(response_json)
                 price = float(response_json["Global Quote"]["05. price"])
-                results += f"The Price of {ticker} is: ${price:.2f}.\nNow tracking {ticker}"
+                results += f"The Price of {ticker} is: ${price:.2f}"
             except:
-                results += f"There was no price information for {ticker}.\nDid not add {ticker}."
+                results += f"There was no price information for {ticker}."
 
     print(results)
     
