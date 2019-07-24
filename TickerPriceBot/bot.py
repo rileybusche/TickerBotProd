@@ -8,7 +8,7 @@ import os.path
 
 
 bot = commands.Bot(command_prefix='!')
-token = open("token.txt", "r").read()
+token = open("token.txt", "r").read().strip()
 
 # Scheduler for output of ticker info
 sched = BlockingScheduler()
