@@ -3,7 +3,7 @@ import requests
 import json
 
 api_key = open("api_key.txt", "r").read()
-hook_url = open("hook_url.txt", "r").read()
+# hook_url = open("hook_url.txt", "r").read()
 
 # Posts to Discord
 def postToDiscord(message):
@@ -44,9 +44,9 @@ def callStockAPI(ticker, mode):
                 print(response)
                 print(response_json)
                 price = float(response_json["Global Quote"]["05. price"])
-                results += f"The Price of {ticker} is: ${price:.2f}"
+                results += f"The Price of {ticker} is: ${price:.2f}\n"
             except:
-                results += f"There was no price information for {ticker}."
+                results += f"There was no price information for {ticker}.\nDid not add {ticker}.\n"
 
     print(results)
     
@@ -68,7 +68,7 @@ def callCryptoAPI(crypto, mode):
             price = float(response_json["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
             results += f"The Price of {crypto} is: ${price:.2f}"
         except:
-            results += f"There was no price information for {crypto}.\nDid not add {crypto}."
+            results += f"There was no price information for {crypto}.\nDid not add {crypto}.\n"
 
     elif mode == "all":
         crypto_list = [line.rstrip('\n') for line in open('cryptos.txt')]
