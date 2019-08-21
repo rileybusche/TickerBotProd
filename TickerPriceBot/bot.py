@@ -14,6 +14,14 @@ token = open("token.txt", "r").read().strip()
 sched = BlockingScheduler()
 
 @bot.event
+async def on_message(message):
+    msg = message.content.lower().strip()
+
+    if msg == "@TickerPriceBot is a scam.":
+        await message.channel.send(f"Fuck you m8 {message.author.mention}")
+
+
+@bot.event
 async def on_ready():
     print('Logged in as')
     print(bot.user.name)
