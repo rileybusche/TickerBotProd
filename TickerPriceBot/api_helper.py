@@ -2,7 +2,12 @@
 import requests
 import json
 
-api_key = open('api_key.txt', 'r').read().strip()
+# api_key = open('api_key.txt', 'r').read().strip()
+
+with open('/home/ec2-user/creds/creds.json') as file:
+    creds = json.load(file)
+
+api_key = creds['Credentials']['Ticker Bot']['API Key']
 
 def stock_price(ticker):
     call = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={api_key}'

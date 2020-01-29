@@ -9,7 +9,13 @@ import api_helper
 
 
 bot = commands.Bot(command_prefix='!')
-token = open("token.txt", "r").read().strip()
+# token = open("token.txt", "r").read().strip()
+
+with open('/home/ec2-user/creds/creds.json') as file:
+    creds = json.load(file)
+
+token = creds['Credentials']['Ticker Bot']['Token']
+
 
 # Scheduler for output of ticker info
 sched = BlockingScheduler()
