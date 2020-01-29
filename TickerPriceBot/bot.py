@@ -42,7 +42,7 @@ async def crypto(ctx, ticker: str):
         price = float(json_respons["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
         if price < 0.00:
             message = f'```fix\n{ticker}: ${price}```'
-        else: 
+        else:
             message = f'```fix\n{ticker}: ${price:.2f}```'
         
     except:
