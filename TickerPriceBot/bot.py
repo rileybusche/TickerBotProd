@@ -26,7 +26,10 @@ async def stock(ctx, ticker: str):
     json_response = api_helper.stock_price(ticker)
     try:
         price = float(json_response["Global Quote"]["05. price"])
-        message = f'```fix\n{ticker}: ${price:.2f}```'
+        if price < 0.00:
+            message = f'```fix\n{ticker}: ${price}```'
+        else:
+            message = f'```fix\n{ticker}: ${price:.2f}```'
     except:
         message = '```\nCould not get a value. Please check the ticker and try again shortly.```'
 
@@ -37,7 +40,11 @@ async def crypto(ctx, ticker: str):
     json_respons = api_helper.crypto_price(ticker)
     try:
         price = float(json_respons["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
-        message = f'```fix\n{ticker}: ${price:.2f}```'
+        if price < 0.00:
+            message = f'```fix\n{ticker}: ${price}```'
+        else: 
+            message = f'```fix\n{ticker}: ${price:.2f}```'
+        
     except:
         message = '```\nCould not get a value. Please check the ticker and try again shortly.```'
     
