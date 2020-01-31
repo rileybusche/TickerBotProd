@@ -4,7 +4,6 @@ from discord.ext import commands
 from apscheduler.schedulers.blocking import BlockingScheduler
 import discord
 import json
-import ticker_alert
 import os.path
 import api_helper
 
