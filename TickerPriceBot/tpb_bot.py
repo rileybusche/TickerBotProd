@@ -46,7 +46,7 @@ async def stock(ctx, ticker: str):
 @bot.command()
 async def crypto(ctx, ticker: str):
     json_respons = api_helper.crypto_price(ticker)
-    log.write_log(json_response)
+    log.write_log(json_response, client)
     try:
         price = float(json_respons["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
         if price < 0.01:
@@ -63,8 +63,8 @@ async def crypto(ctx, ticker: str):
 async def bot_quit(ctx):
     await bot.close()
 
-
-
+client.run(token)
+bot.run(token)
 
 
 # # Outputs price of ticker
@@ -204,4 +204,3 @@ async def bot_quit(ctx):
 # async def Graph(ctx):
 #     await ctx.send("This command isn't implemented yet")
 
-bot.run(token)
