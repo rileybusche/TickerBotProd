@@ -9,7 +9,7 @@ import os.path
 import api_helper
 import logging as log
 
-
+client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
 
@@ -17,7 +17,6 @@ with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
 
 token = creds['Credentials']['Ticker Bot']['Token']
-
 
 # Scheduler for output of ticker info
 sched = BlockingScheduler()
@@ -32,7 +31,7 @@ async def on_ready():
 @bot.command()
 async def stock(ctx, ticker: str):
     json_response = api_helper.stock_price(ticker)
-    log.write_log(json_response)
+    log.write_log(json_response, client)
     try:
         price = float(json_response["Global Quote"]["05. price"])
         if price < 0.01:
