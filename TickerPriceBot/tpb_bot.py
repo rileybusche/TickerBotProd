@@ -9,7 +9,7 @@ import os.path
 import api_helper
 import logging as log
 
-client = discord.Client()
+# client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
 
@@ -31,7 +31,7 @@ async def on_ready():
 @bot.command()
 async def stock(ctx, ticker: str):
     json_response = api_helper.stock_price(ticker)
-    log.write_log(json_response, client)
+    log.write_log(json_response, bot)
     try:
         price = float(json_response["Global Quote"]["05. price"])
         if price < 0.01:
@@ -46,7 +46,7 @@ async def stock(ctx, ticker: str):
 @bot.command()
 async def crypto(ctx, ticker: str):
     json_respons = api_helper.crypto_price(ticker)
-    log.write_log(json_response, client)
+    log.write_log(json_response, bot)
     try:
         price = float(json_respons["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
         if price < 0.01:
@@ -63,7 +63,7 @@ async def crypto(ctx, ticker: str):
 async def bot_quit(ctx):
     await bot.close()
 
-client.run(token)
+# client.run(token)
 bot.run(token)
 
 
