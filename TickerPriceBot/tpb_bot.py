@@ -7,7 +7,7 @@ import json
 import os.path
 
 import api_helper
-import discord_logging as log
+import TickerBotProd.TickerPriceBot.helpers.discord_logging as log
 
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
