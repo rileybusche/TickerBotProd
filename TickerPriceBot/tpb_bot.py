@@ -5,6 +5,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import discord
 import json
 import os.path
+import asyncio
 
 import api_helper
 import helpers.discord_logging as log
@@ -31,7 +32,8 @@ async def on_ready():
 @bot.command()
 async def stock(ctx, ticker: str):
     json_response = api_helper.stock_price(ticker)
-    log.write_log(json_response, bot)
+    asyncio.run(log.write_log(json_response, bot))
+    
     try:
         price = float(json_response["Global Quote"]["05. price"])
         if price < 0.01:
