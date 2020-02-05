@@ -14,7 +14,7 @@ import helpers.graph as graph
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
-frequency = '5min'
+frequency = '1min'
 
 with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
@@ -43,7 +43,7 @@ async def stock(ctx, ticker: str):
 
     file_path = graph.create_graph(json_response, ticker)
     await ctx.send(file=discord.File(file_path))
-    
+
     try:
         if price < 0.01:
             message = f'```fix\n{ticker}: ${price}```'
