@@ -8,11 +8,15 @@ file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 
 current_date = str(datetime.datetime.now()).split()[0]
 
+# Graph Formating
 font = {'family' : 'normal',
         'weight' : 'normal',
         'size'   : 5}
 
 plt.rc('font', **font)
+
+plt.locator_params(axis='x', nbins=10)
+
 
 def create_graph(json_data, ticker):
 
