@@ -7,7 +7,7 @@ import json
 import os.path
 import asyncio
 
-import api_helper
+import helpers.api_helper
 import helpers.discord_logging as log
 import helpers.graph as graph
 
