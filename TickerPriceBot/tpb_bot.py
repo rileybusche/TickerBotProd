@@ -37,7 +37,7 @@ async def stock(ctx, ticker: str):
     # log.write_log(json_response, bot)
     try:
         for time in json_response:
-            price = float(time['4. close'])
+            price = float(json_response[time]['4. close'])
             print(price)
             break
 
