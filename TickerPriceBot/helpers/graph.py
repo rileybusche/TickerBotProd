@@ -5,6 +5,11 @@ file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 
 current_date = str(datetime.datetime.now()).split()[0]
 
+font = {'family' : 'normal',
+        'weight' : 'bold',
+        'size'   : 10}
+
+matplotlib.rc('font', **font)
 
 def create_graph(json_data, ticker):
 
