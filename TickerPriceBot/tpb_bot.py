@@ -38,6 +38,7 @@ async def stock(ctx, ticker: str):
     try:
         for time in json_response:
             price = float(time['4. close'])
+            print(price)
             break
 
         file_path = graph.create_graph(json_response, ticker)
