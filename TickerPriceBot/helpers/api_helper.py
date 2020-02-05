@@ -20,7 +20,7 @@ def stock_price(ticker, frequency):
     json_response = response.json()
     pp.pprint(json_response[f'Time Series ({frequency})'])
 
-    return json_response
+    return json_response[f'Time Series ({frequency})']
 
 def crypto_price(ticker, frequency):
     call = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={ticker}&to_currency=USD&apikey={api_key}'
