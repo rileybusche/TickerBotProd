@@ -14,7 +14,7 @@ def create_graph(json_data, ticker):
         time_axis.append(time_formated)
         price_axis.append(json_data[timestamp]['2. high'])
 
-        print(time_label)
+        print(timestamp)
         print(time_formated)
         print("**********")
 
