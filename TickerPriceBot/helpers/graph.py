@@ -28,11 +28,11 @@ def create_graph(json_data, ticker, frequency):
             time_label = timestamp.split()[1].split(':')
             time_formated = time_label[0] + '.' + time_label[1]
 
-            time_axis.append(time_formated)
+            time_axis.append(float(time_formated))
             price_axis.append(float(json_data[timestamp]['4. close']))
 
-    time_axis.reverse()
-    price_axis.reverse()
+    # time_axis.reverse()
+    # price_axis.reverse()
 
     plt.plot(time_axis, price_axis)
 
@@ -42,7 +42,7 @@ def create_graph(json_data, ticker, frequency):
     plt.locator_params(axis='x', nbins='auto')
 
     plt.title(f'{ticker} ({frequency})')
-    plt.xlabel('time')
+    plt.xlabel('time (hours)')
     plt.ylabel('price ($)')
     plt.savefig('image.jpg')
 
