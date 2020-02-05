@@ -26,7 +26,8 @@ def create_graph(json_data, ticker, frequency):
     for timestamp in json_data:
         if timestamp.split()[0] == current_date:
             time_label = timestamp.split()[1].split(':')
-            time_formated = time_label[0] + ':' + time_label[1]
+            time_formated = float(time_label[0] + '.' + time_label[1])
+
             time_axis.append(time_formated)
             price_axis.append(float(json_data[timestamp]['4. close']))
 
