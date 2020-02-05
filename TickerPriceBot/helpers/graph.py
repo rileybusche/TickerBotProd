@@ -36,7 +36,7 @@ def create_graph(json_data, ticker, frequency):
     pp.pprint(json_data)
 
     plt.tick_params(axis='x', rotation=-90)
-    plt.locator_params(axis='x', nbins='10')
+    plt.locator_params(axis='x', nbins='.10')
 
     plt.title(f'{ticker} ({frequency})')
     plt.xlabel('time')
