@@ -11,7 +11,7 @@ current_date = str(datetime.datetime.now()).split()[0]
 # Graph Formating
 font = {'family' : 'normal',
         'weight' : 'normal',
-        'size'   : 5}
+        'size'   : 10}
 
 plt.rc('font', **font)
 
@@ -39,6 +39,7 @@ def create_graph(json_data, ticker):
 
     plt.tick_params(axis='x', rotation=90)
 
+    plt.title(ticker)
     plt.xlabel('time')
     plt.ylabel('price ($)')
     plt.savefig('image.jpg')
