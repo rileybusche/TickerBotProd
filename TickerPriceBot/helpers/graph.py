@@ -29,7 +29,7 @@ def create_graph(json_data, ticker, frequency):
             time_formated = float(time_label[0] + '.' + time_label[1])
 
             time_axis.append(time_formated)
-            price_axis.append(float(json_data[timestamp]['4. close']))
+            price_axis.append(json_data[timestamp]['4. close'])
 
     plt.plot(time_axis, price_axis)
 
