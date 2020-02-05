@@ -11,7 +11,6 @@ api_key = creds['Credentials']['Ticker Bot']['API Key']
 
 def stock_price(ticker, frequency):
     # call = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={api_key}'
-
     # Intraday
     call = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval={frequency}&apikey={api_key}'
     response = requests.get(call)
