@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt 
 
-file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/helpers/image.jpg'
+file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 
 
 def create_graph(json_data, ticker):
