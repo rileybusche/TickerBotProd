@@ -14,7 +14,7 @@ import helpers.graph as graph
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
-frequency = '5min'
+frequency = '10min'
 
 with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
@@ -41,7 +41,7 @@ async def stock(ctx, ticker: str):
         print(price)
         break
     
-    file_path = graph.create_graph(json_response, ticker)
+    file_path = graph.create_graph(json_response, ticker, frequency)
     await ctx.send(file=discord.File(file_path))
 
     os.system('rm image.jpg')

@@ -16,7 +16,7 @@ font = {'family' : 'normal',
 plt.rc('font', **font)
 
 
-def create_graph(json_data, ticker):
+def create_graph(json_data, ticker, frequency):
 
     plt.clf()
 
@@ -40,7 +40,7 @@ def create_graph(json_data, ticker):
     plt.tick_params(axis='x', rotation=-90)
     plt.locator_params(axis='x', nbins='auto')
 
-    plt.title(ticker)
+    plt.title(f'{ticker} ({frequency})')
     plt.xlabel('time')
     plt.ylabel('price ($)')
     plt.savefig('image.jpg')
