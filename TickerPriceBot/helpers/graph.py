@@ -9,7 +9,7 @@ font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : 10}
 
-matplotlib.rc('font', **font)
+plt.rc('font', **font)
 
 def create_graph(json_data, ticker):
 
