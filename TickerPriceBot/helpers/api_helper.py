@@ -19,6 +19,7 @@ def stock_price(ticker, frequency):
     response = requests.get(call)
     json_response = response.json()
     pp.pprint(json_response[f'Time Series ({frequency})'])
+    print(type(json_response[f'Time Series ({frequency})']))
 
     return json_response[f'Time Series ({frequency})']
 
