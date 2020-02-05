@@ -8,6 +8,8 @@ current_date = str(datetime.datetime.now()).split()[0]
 
 def create_graph(json_data, ticker):
 
+    plt.clf()
+
     time_axis = []
     price_axis = []
 
