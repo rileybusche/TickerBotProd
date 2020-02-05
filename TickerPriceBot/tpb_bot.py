@@ -35,15 +35,16 @@ async def on_ready():
 async def stock(ctx, ticker: str):
     json_response = api_helper.stock_price(ticker, frequency)
     # log.write_log(json_response, bot)
+
+    for time in json_response:
+        price = float(json_response[time]['4. close'])
+        print(price)
+        break
+
+    file_path = graph.create_graph(json_response, ticker)
+    await ctx.send(file=discord.File(file_path))
+    
     try:
-        for time in json_response:
-            price = float(json_response[time]['4. close'])
-            print(price)
-            break
-
-        file_path = graph.create_graph(json_response, ticker)
-        await ctx.send(file=discord.File(file_path))
-
         if price < 0.01:
             message = f'```fix\n{ticker}: ${price}```'
         else:

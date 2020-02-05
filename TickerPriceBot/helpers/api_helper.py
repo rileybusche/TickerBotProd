@@ -17,16 +17,9 @@ def stock_price(ticker, frequency):
     # Intraday
     call = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval={frequency}&apikey={api_key}'
     response = requests.get(call)
+
     json_response = response.json()
-
     time_series = json_response[f'Time Series ({frequency})']
-    # pp.pprint(time_series)
-    for time_set in time_series:
-        print(time_set)
-        print("***********")
-
-
-    print(type(json_response[f'Time Series ({frequency})']))
 
     return json_response[f'Time Series ({frequency})']
 
