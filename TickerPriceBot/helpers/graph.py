@@ -38,7 +38,7 @@ def create_graph(json_data, ticker):
     pp.pprint(json_data)
 
     plt.tick_params(axis='x', rotation=-90)
-    plt.locator_params(axis='x', nbins=10)
+    plt.locator_params(axis='x', nbins='auto')
 
     plt.title(ticker)
     plt.xlabel('time')
