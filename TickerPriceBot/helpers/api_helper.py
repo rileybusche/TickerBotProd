@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import requests
 import json
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
 
 # api_key = open('api_key.txt', 'r').read().strip()
 
