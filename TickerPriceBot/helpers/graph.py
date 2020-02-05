@@ -15,8 +15,6 @@ font = {'family' : 'normal',
 
 plt.rc('font', **font)
 
-plt.tick_params(axis='x', rotation=90)
-
 
 def create_graph(json_data, ticker):
 
@@ -38,6 +36,8 @@ def create_graph(json_data, ticker):
     plt.plot(time_axis, price_axis)
 
     pp.pprint(json_data)
+
+    plt.tick_params(axis='x', rotation=90)
 
     plt.xlabel('time')
     plt.ylabel('price ($)')
