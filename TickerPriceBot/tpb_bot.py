@@ -9,10 +9,12 @@ import asyncio
 
 import api_helper
 import helpers.discord_logging as log
+import helpers.graph as graph
 
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
+frequency = '5min'
 
 with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
@@ -31,10 +33,16 @@ async def on_ready():
 
 @bot.command()
 async def stock(ctx, ticker: str):
-    json_response = api_helper.stock_price(ticker)
+    json_response = api_helper.stock_price(ticker, frequency)
     # log.write_log(json_response, bot)
     try:
-        price = float(json_response["Global Quote"]["05. price"])
+        for time in json_response:
+            price = float(time['4. close'])
+            break
+
+        file_path = graph.create_graph(json_response, ticker)
+        await ctx.send(file=discord.File(file_path))
+
         if price < 0.01:
             message = f'```fix\n{ticker}: ${price}```'
         else:
@@ -46,7 +54,7 @@ async def stock(ctx, ticker: str):
 
 @bot.command()
 async def crypto(ctx, ticker: str):
-    json_respons = api_helper.crypto_price(ticker)
+    json_respons = api_helper.crypto_price(ticker, frequency)
     # log.write_log(json_response, bot)
     try:
         price = float(json_respons["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
