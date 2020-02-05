@@ -40,7 +40,7 @@ async def stock(ctx, ticker: str):
         price = float(json_response[time]['4. close'])
         print(price)
         break
-
+    
     file_path = graph.create_graph(json_response, ticker)
     await ctx.send(file=discord.File(file_path))
 

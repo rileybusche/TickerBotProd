@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt 
 import datetime
+import pprint
+
+pp = pprint.PrettyPrinter(indent=4)
 
 file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 
@@ -25,11 +28,9 @@ def create_graph(json_data, ticker):
             time_axis.append(time_formated)
             price_axis.append(json_data[timestamp]['4. close'])
 
-            print(timestamp)
-            print(time_formated)
-            print("**********")
-
     plt.plot(time_axis, price_axis)
+
+    pp.pprint(json_data)
 
     plt.xlabel('time')
     plt.ylabel('price ($)')
