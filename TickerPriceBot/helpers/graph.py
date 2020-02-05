@@ -15,7 +15,7 @@ font = {'family' : 'normal',
 
 plt.rc('font', **font)
 
-plt.locator_params(axis='x', numticks=10)
+plt.tick_params(axis='x', rotation=90)
 
 
 def create_graph(json_data, ticker):
