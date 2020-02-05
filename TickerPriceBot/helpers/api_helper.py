@@ -12,10 +12,10 @@ with open('/home/ec2-user/creds/creds.json') as file:
 
 api_key = creds['Credentials']['Ticker Bot']['API Key']
 
-def stock_price(ticker, frequency):
+def stock_price(ticker, frequency, output_size):
     # call = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={api_key}'
     # Intraday
-    call = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval={frequency}&apikey={api_key}'
+    call = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval={frequency}&outputsize={output_size}&apikey={api_key}'
     response = requests.get(call)
 
     json_response = response.json()

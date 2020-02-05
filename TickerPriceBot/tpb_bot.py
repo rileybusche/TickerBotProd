@@ -15,6 +15,7 @@ import helpers.graph as graph
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
 frequency = '1min'
+output_size = 'full'
 
 with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
@@ -33,7 +34,7 @@ async def on_ready():
 
 @bot.command()
 async def stock(ctx, ticker: str):
-    json_response = api_helper.stock_price(ticker, frequency)
+    json_response = api_helper.stock_price(ticker, frequency, output_size)
     # log.write_log(json_response, bot)
 
     for time in json_response:
