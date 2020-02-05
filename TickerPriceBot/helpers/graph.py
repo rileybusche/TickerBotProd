@@ -11,7 +11,7 @@ current_date = str(datetime.datetime.now()).split()[0]
 # Graph Formating
 font = {'family' : 'normal',
         'weight' : 'normal',
-        'size'   : 10}
+        'size'   : 5}
 
 plt.rc('font', **font)
 
