@@ -14,7 +14,7 @@ import helpers.graph as graph
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
 # token = open("token.txt", "r").read().strip()
-frequency = '1min'
+frequency = '5min'
 
 with open('/home/ec2-user/creds/creds.json') as file:
     creds = json.load(file)
