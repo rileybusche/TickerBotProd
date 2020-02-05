@@ -16,7 +16,7 @@ def create_graph(json_data, ticker):
             time_label = timestamp.split()[1].split(':')
             time_formated = time_label[0] + ':' + time_label[1]
             time_axis.append(time_formated)
-            price_axis.append(json_data[timestamp]['4. close])
+            price_axis.append(json_data[timestamp]['4. close'])
 
             print(timestamp)
             print(time_formated)
