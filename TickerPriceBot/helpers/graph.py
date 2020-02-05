@@ -28,6 +28,9 @@ def create_graph(json_data, ticker):
             time_axis.append(time_formated)
             price_axis.append(json_data[timestamp]['4. close'])
 
+    time_axis.reverse()
+    price_axis.reverse()
+
     plt.plot(time_axis, price_axis)
 
     pp.pprint(json_data)
