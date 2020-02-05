@@ -4,7 +4,7 @@ from discord.ext import commands
 from apscheduler.schedulers.blocking import BlockingScheduler
 import discord
 import json
-import os.path
+import os
 import asyncio
 
 import helpers.api_helper as api_helper
@@ -43,6 +43,8 @@ async def stock(ctx, ticker: str):
 
     file_path = graph.create_graph(json_response, ticker)
     await ctx.send(file=discord.File(file_path))
+
+    os.system('rm image.jpg')
 
     try:
         if price < 0.01:
