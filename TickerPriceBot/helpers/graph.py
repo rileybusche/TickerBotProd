@@ -40,10 +40,13 @@ def create_graph(json_data, ticker, frequency):
 
     plt.tick_params(axis='x', rotation=-90)
     plt.locator_params(axis='x', nbins='auto')
+    plt.tight_layout()
 
     plt.title(f'{ticker} ({frequency}) {current_date}')
     plt.xlabel('time (hours)')
     plt.ylabel('price ($)')
+
+
     plt.savefig('image.jpg')
 
     return file_path
