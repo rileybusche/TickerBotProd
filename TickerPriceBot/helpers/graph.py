@@ -6,8 +6,6 @@ pp = pprint.PrettyPrinter(indent=4)
 
 file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 
-current_date = str(datetime.datetime.now()).split()[0]
-
 # Graph Formating
 font = {'family' : 'normal',
         'weight' : 'normal',
@@ -17,6 +15,8 @@ plt.rc('font', **font)
 
 
 def create_graph(json_data, ticker, frequency):
+
+    current_date = str(datetime.datetime.now()).split()[0]
 
     plt.clf()
 
