@@ -40,8 +40,9 @@ def create_graph(json_data, ticker, frequency):
 
     plt.tick_params(axis='x', rotation=-90)
     plt.locator_params(axis='x', nbins='auto')
-    plt.tight_layout()
-
+    # plt.tight_layout()
+    plt.gcf().subplots_adjust(bottom=0.15)
+    
     plt.title(f'{ticker} ({frequency}) {current_date}')
     plt.xlabel('time (hours)')
     plt.ylabel('price ($)')
