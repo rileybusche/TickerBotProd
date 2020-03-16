@@ -3,8 +3,6 @@ import requests
 import json
 import pprint
 
-import delta
-
 pp = pprint.PrettyPrinter(indent=4)
 
 # api_key = open('api_key.txt', 'r').read().strip()
