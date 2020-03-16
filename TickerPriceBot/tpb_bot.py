@@ -47,7 +47,7 @@ async def stock(ctx, ticker: str):
 
     os.system('rm image.jpg')
 
-    stock_delta = delta.ticker_delta(json_response)
+    #stock_delta = delta.ticker_delta(json_response)
 
     try:
         if price < 0.01:
