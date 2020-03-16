@@ -51,9 +51,9 @@ async def stock(ctx, ticker: str):
 
     try:
         if price < 0.01:
-            message = f'```fix\n{ticker}: ${price}\n{stock_delta}```'
+            message = f'```fix\n{ticker}: ${price}```'
         else:
-            message = f'```fix\n{ticker}: ${price:.2f}\n{stock_delta}```'
+            message = f'```fix\n{ticker}: ${price:.2f}```'
     except:
         message = '```\nCould not get a value. Please check the ticker and try again shortly.```'
 
