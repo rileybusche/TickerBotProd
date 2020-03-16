@@ -17,4 +17,6 @@ def ticker_delta(price_data):
 
     delta = market_price_now - market_price_open
 
+    print(delta)
+
     return str(delta)
