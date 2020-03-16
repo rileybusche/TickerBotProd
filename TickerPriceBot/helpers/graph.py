@@ -10,9 +10,8 @@ file_path = '/home/ec2-user/TickerBotProd/TickerPriceBot/image.jpg'
 font = {'family' : 'normal',
         'weight' : 'normal',
         'size'   : 15}
-
+        
 plt.rc('font', **font)
-
 
 def create_graph(json_data, ticker, frequency):
 
@@ -42,7 +41,7 @@ def create_graph(json_data, ticker, frequency):
     plt.locator_params(axis='x', nbins='auto')
     # plt.tight_layout()
     plt.gcf().subplots_adjust(bottom=0.15)
-    
+
     plt.title(f'{ticker} ({frequency}) {current_date}')
     plt.xlabel('time (hours)')
     plt.ylabel('price ($)')

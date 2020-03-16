@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from discord.ext import commands
 from apscheduler.schedulers.blocking import BlockingScheduler
 import discord
@@ -10,6 +9,7 @@ import asyncio
 import helpers.api_helper as api_helper
 import helpers.discord_logging as log
 import helpers.graph as graph
+import helpers.delta as delta
 
 # client = discord.Client()
 bot = commands.Bot(command_prefix='!')
@@ -47,11 +47,13 @@ async def stock(ctx, ticker: str):
 
     os.system('rm image.jpg')
 
+    delta = delta.ticker_delta(json_response)
+
     try:
         if price < 0.01:
-            message = f'```fix\n{ticker}: ${price}```'
+            message = f'```fix\n{ticker}: ${price}\n{delta}```'
         else:
-            message = f'```fix\n{ticker}: ${price:.2f}```'
+            message = f'```fix\n{ticker}: ${price:.2f}\n{delta}```'
     except:
         message = '```\nCould not get a value. Please check the ticker and try again shortly.```'
 
