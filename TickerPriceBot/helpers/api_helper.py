@@ -21,8 +21,6 @@ def stock_price(ticker, frequency, output_size):
     json_response = response.json()
     time_series = json_response[f'Time Series ({frequency})']
 
-    ticker_delta = delta.ticker_delta(time_series)
-
     return json_response[f'Time Series ({frequency})']
 
 def crypto_price(ticker, frequency):
