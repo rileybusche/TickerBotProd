@@ -47,13 +47,13 @@ async def stock(ctx, ticker: str):
 
     os.system('rm image.jpg')
 
-    delta = delta.ticker_delta(json_response)
+    stock_delta = delta.ticker_delta(json_response)
 
     try:
         if price < 0.01:
-            message = f'```fix\n{ticker}: ${price}\n{delta}```'
+            message = f'```fix\n{ticker}: ${price}\n{stock_delta}```'
         else:
-            message = f'```fix\n{ticker}: ${price:.2f}\n{delta}```'
+            message = f'```fix\n{ticker}: ${price:.2f}\n{stock_delta}```'
     except:
         message = '```\nCould not get a value. Please check the ticker and try again shortly.```'
 
