@@ -12,8 +12,8 @@ def ticker_delta(price_data):
 
     market_time_now = f'{date.year}-{date.month}-{date.day} {hour}:{date.minute}:00'
 
-    market_price_open = float([market_time_open]['1. open'])
-    market_price_now = float([market_time_now]['4. close'])
+    market_price_open = float(price_data[market_time_open]['1. open'])
+    market_price_now = float(price_data[market_time_now]['4. close'])
 
     delta = market_price_now - market_price_open
 
