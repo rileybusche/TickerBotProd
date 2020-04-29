@@ -16,6 +16,7 @@ def stock_price(ticker, frequency, output_size):
     # call = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={ticker}&apikey={api_key}'
     # Intraday
     call = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={ticker}&interval={frequency}&outputsize={output_size}&apikey={api_key}'
+    print(call)
     response = requests.get(call)
 
     json_response = response.json()
