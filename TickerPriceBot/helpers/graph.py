@@ -35,7 +35,7 @@ def create_graph(json_data, ticker, frequency):
 
     plt.plot(time_axis, price_axis)
 
-    pp.pprint(json_data)
+#     pp.pprint(json_data)
 
     plt.tick_params(axis='x', rotation=-90)
     plt.locator_params(axis='x', nbins='auto')
